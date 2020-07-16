@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery入門</title>
+  </head>
+  <body>
+    <h1>jQueryを書いてみよう！</h1>
+    <p>jQueryは、世界中でよく使用される、ライブラリのひとつです。</p>
+    <p>jQueryの歴史は古く....</p>
+    <h2>リスト１</h2>
+    <ul id="list1" class="unordered">
+      <li>リスト</li>
+      <li>リスト</li>
+      <li>リスト</li>
+    </ul>
+    <h2>リスト2</h2>
+    <ol id="list2" class="ordered">
+      <li>リスト</li>
+      <li>リスト</li>
+      <li>リスト</li>
+    </ol>
+    <table>
+      <tr>
+        <th>項目1</th>
+        <th>項目2</th>
+        <th>項目3</th>
+      </tr>
+      <tr>
+        <td>リスト</td>
+        <td>リスト</td>
+        <td>リスト</td>
+      </tr>
+      <tr>
+        <td>リスト</td>
+        <td>リスト</td>
+        <td>リスト</td>
+      </tr>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('li').on('mouseenter', function(){
+          $(this).css('background-color', 'yellowgreen');
+        })
+        .on('mouseleave',function(){
+          $(this).css('background-color', 'transparent');
+        });
+      });
+      $(function() {
+        $('table').find('td').on('click', function(){
+          let $this = $(this);
+          $this.closest('table').find('td')
+          .css('background-color', 'transparent');
+          $this.css('background-color', 'yellowgreen');
+        });
+      });
+    </script>
+  </body>
+</html>
